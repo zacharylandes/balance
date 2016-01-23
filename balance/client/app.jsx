@@ -4,7 +4,7 @@ App = React.createClass({
   getMeteorData() {
       return {
         activites: Activities.find({}).fetch(),
-        currentUser: Meteor.user()
+        currentUser: Meteor.userId()
       }
   },
   reducer: function (key) {
@@ -18,7 +18,7 @@ App = React.createClass({
   //applying pleasure and achievement scores to their correct categories
   mapData: function () {
     if (!this.data.activites)  { return [] };
-    return _.chain(this.data.activites)
+    return _.chain(this.data.activities)
       .map(d => { return d.activity })
       .groupBy(activity => { return activity.cat})
       .map((arr, cat) => {

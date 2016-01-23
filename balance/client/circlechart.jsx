@@ -17,8 +17,8 @@ CircleChart = React.createClass({
         );
   },
   updateChart: function(props) {
-  var  data = this.props.data;
-  console.log("circlechartdata:", data)
+  var  data = props.data;
+  console.log("circlechartdata", data)
        data = data.sort(function(a,b) {
         return(a.totalScore - b.totalScore)
        });

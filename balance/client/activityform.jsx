@@ -2,6 +2,7 @@ ActivityForm = React.createClass({
   //retrieving data from user
   handleSubmit: function(e){
     e.preventDefault();
+    var currentUserId = Meteor.userId();
     var pleasure = parseInt(ReactDOM.findDOMNode(this.refs.pleasure).value);
     var achievement = parseInt(ReactDOM.findDOMNode(this.refs.achievement).value);
     var cat = ReactDOM.findDOMNode(this.refs.cats).value;
@@ -14,10 +15,12 @@ ActivityForm = React.createClass({
       cat:cat,
       name: name
     }
-    Meteor.call("insertActivity", activity, function(e, r) {
-      if (e) alert(e.reason)
-    });
-    console.log(activity)
+
+   Accounts.createUser({
+            activity:activity,
+
+        });
+    console.log(activity,currentUserId)
   },
 
   render: function() {

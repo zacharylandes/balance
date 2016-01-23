@@ -24,5 +24,6 @@ momentjs:moment
 twbs:bootstrap
 fortawesome:fontawesome
 accounts-ui
-accounts-password
 check
+accounts-base
+accounts-password
